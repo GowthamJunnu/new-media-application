@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Daily</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="bg-light">
+    <header class="py-2">
+        <section class="d-none d-md-block">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg pb-0">
+                    <div class="container-fluid">
+                        <a class="navbar-brand fs-4 fw-normal text-muted text-uppercase" href="#"><span class="text-primary">News</span> Daily</a>
+                        <div class="collapse navbar-collapse text-end d-none d-md-block" id="topNavbar">
+                            <ul class="navbar-nav mx-auto me-0" id="topNavbarUl">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#" id="topBarNavItemNews">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="topBarNavItemBlog">Blogs</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <hr class="text-muted">
+            </div>
+        </section>
+        <section class="pt-3 pt-md-0" id="newsNavMenuSection">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg pt-0">
+                    <div class="container-fluid">
+                        <a class="navbar-brand fs-4 fw-normal text-muted text-uppercase d-block d-md-none" href="#"><span class="text-primary">News</span> Daily</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse text-end py-3 py-md-0" id="mainMenu">
+                            <ul class="navbar-nav mx-auto" id="mainMenuUl">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#" id="homePageNavLink">Home</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </header>
+    <main class="">
+
+        <!-- Home page section... -->
+        <section class="py-5" id="homePageSection">
+            <div class="container">
+                <h1 class="fs-1 fw-bold mb-3">Todays Updated...</h1>
+                <div class="row g-3">
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="bg-white rounded-3">
+                                    <div id="homePageHeroSectionSlider" class="carousel slide" data-bs-ride="false">
+                                        <div class="carousel-indicators" id="sliderIndicators">
+                                        </div>
+                                        <div class="carousel-inner rounded-3" id="sliderElements">
+                                            <!-- Here dynamically will load slider elements... -->
+                                        </div>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#homePageHeroSectionSlider" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#homePageHeroSectionSlider" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <div class="bg-white rounded-3 py-5 px-4">
+                                    <h1 class="fs-2 fw-semibold mb-3">Latest News...</h1>
+                                    <div class="row row-cols-1 row-cols-md-2 g-4" id="latestNewsCards">
+                                        <!-- Here dynamically will load latest news data from JS... -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row row-cols-1 row-cols-md-1 g-4" id="sidebarNewsCards">
+                            <!-- Here dynamically will load sidebar news data from JS... -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category news sections... -->
+        <section id="categoryNewsSection">
+            <section>
+                <div class="container">
+                    <div class="row rounded-3 bg-white py-3 px-2 my-3 shadow-sm mx-1 align-items-center"
+                        id="newsFoundMessageSection">
+                        <div class="col-10">
+                            <p class="mb-0 text-secondary" id="newsFoundMessage"></p>
+                        </div>
+                        <div class="col-2">
+                            <p class="mb-0 text-end text-muted" id="newsFoundMessageSectionHide"><i
+                                    class="fa-solid fa-xmark"></i></p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between align-items-center pt-4 pb-2 my-3 mx-1"
+                        id="newsSortingSection">
+                        <div class="col-6">
+                            <input type="text" value="" id="categoryIdField" hidden></input>
+                            <input type="text" value="" id="categoryNameField" hidden></input>
+                            <span>Sort By:
+                                <select class="form-select-sm py-2 px-2 ms-0 ms-md-2" id="newsSortByOptions">
+                                    <option value="default">Default</option>
+                                    <option value="most-viewed">Most Viewed</option>
+                                    <option value="most-recent">Most Recent</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="col-6 text-end" id="newsFilterBtnSection">
+                            <button type="button"
+                                class="btn news-filter-btn news-today-btn-primary news-today-btn-active p-2 px-4 me-0 me-md-2 mb-2 mb-md-0"
+                                id="trendingBtn" value="trending">Trending</button>
+                            <button type="button" class="btn news-filter-btn news-today-btn-outline-primary p-2 px-4"
+                                id="todaysPickBtn" value="todays-pick">Today's Pick</button>
+                        </div>
+                    </div>
+                    <div class="row rounded-3 py-4 text-center" id="preloaderSection">
+                        <div class="col-md-12">
+                            <img src="assets/images/preloader.gif" class="preloader-img" alt="preloader image">
+                        </div>
+                    </div>
+                    <div class="row rounded-3 py-4 my-3 text-center" id="noDataFoundSection">
+                        <div class="col-md-12">
+                            <h2 class="text-danger error-message-heading">404 Error</h2>
+                            <p class="text-muted">No news data found by this category!!! Please try again
+                                <br>with a different one.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="main-content-section mt-3 mb-5" id="mainContentSection">
+                <div class="container">
+                    <div class="row row-cols-1 g-4" id="newsCards">
+                        <!-- Here dynamically will load news cards from JavaScript by API -->
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section id="blogContentSection" class="my-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row row-cols-1 row-cols-md-2 g-4" id="sidebarNewsCards">
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="assets/images/dummy-img.png " class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-capitalize">What is the difference between var, let and const?</h5>
+                                        <p class="card-text">
+                                            In javascript there is three option available to declare a variable, these are var, let and const. Var is a functional-scoped that means there is by default hoisting feature available but let and const is block-scoped so there is no hoisting feature.<br><br>
+                                            Var variable can re-declarable but let and const are not. Var and let value are re-assignable but const value not be re-assignable.<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="assets/images/dummy-img.png" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-capitalize">What is the difference between arrow function and regular function?</h5>
+                                        <p class="card-text">
+                                            The regular function is create by usual function keyword, But the arrow function is create by arrow sign. Regular function is the old way to create a function but the arrow function is modern javascript (ES6) feature.<br><br>
+                                            Regular function can call before declaration because of javascript hoisting feature but the arrow function can't call before it declaration.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="assets/images/dummy-img.png" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-capitalize">What is the differences between map, forEach, filter and find?</h5>
+                                        <p class="card-text">The map method is return a new array and does not allow to change the original arrow, But forEach method is return undefined and it change the original array. The filter method is return multiple elements array that matched condition, but the<br><br> find method return first matched element(One element only) with matched condition.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="assets/images/dummy-img.png" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-capitalize">What is the use case of template literals?</h5>
+                                        <p class="card-text">The template literals is a modern javascript feature by that we can include variables and expression in a string.<br><br> Template literals is also allow to write multi-column code with simple way.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <p class="text-muted mb-0">Copyright @ 2022. All Right Reserved Designed by Azhar Anowar.</p>
+        </div>
+    </footer>
+
+
+
+    <!-- News detailed information modal... -->
+    <div class="modal fade" id="newsDetailedInformationModal" tabindex="-1"
+        aria-labelledby="newsDetailedInformationModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-md-5 px-4 py-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="mb-3" id="newsDetailedModalTitle"></h3>
+                            <div class="row mb-4 align-items-center">
+                                <div class="col-7 col-md-3">
+                                    <div class="row justify-content-start align-items-center mb-2">
+                                        <div class="col-3 col-md-3">
+                                            <img class="img-fluid rounded-circle" id="newsDetailedModalAuthorThumbnail"
+                                                src="">
+                                        </div>
+                                        <div class="col-9 col-md-9">
+                                            <h5 class="fw-normal mb-0 fs-6"><span
+                                                    id="newsDetailedModalAuthorName"></span></h5>
+                                            <p class="text-muted mb-0"><small><span
+                                                        id="newsDetailedModalPublicationDate"></span></small></p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row justify-content-start align-items-center">
+                                        <div class="col-auto">
+                                            <p class=" mb-0">Category: </p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <p class="text-muted mb-0"><span id="newsDetailedModalCategoryName"></span></p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <img src="" class="w-75 pb-3" alt="News Image" id="newsDetailedModalThumbnailImg">
+                            <p class="" id="newsDetailedModalFullDescription"></p>
+                            <div class="row align-items-center">
+                                <div class="row align-items-center justify-content-start mt-2">
+                                    <div class="col-auto">
+                                        Rating:
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="d-flex justify-content-start align-items-center"
+                                            id="newsDetailedModalRatings">
+                                            <!-- Here automatically will load news rating stars from javascript... -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center justify-content-start mt-2">
+                                    <div class="col-auto">
+                                        Views:
+                                    </div>
+                                    <div class="col-auto">
+                                        <p class="mb-0 text-muted"><i class="fa-solid fa-eye me-2 text-muted"></i><span
+                                                id="newsDetailedModalTotalViews"></span></p>
+                                    </div>
+                                </div>
+                                <!-- <div class="row align-items-center justify-content-start mt-2">
+                                    <div class="col-auto">
+                                        Trending: 
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/cdf319e764.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
